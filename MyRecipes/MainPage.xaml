@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRecipes.MainPage">
+
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="My Recipes" WidthRequest="150" 
+                   TextColor="White" FontSize="Title"
+                   VerticalOptions="Center"/>
+
+            <Button Text="+ Add" Clicked="Add_Recipe"
+                    WidthRequest="100" FontSize="Large"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="Center"/>
+
+        </StackLayout>
+    </Shell.TitleView>
+</ContentPage>
