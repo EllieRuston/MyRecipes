@@ -4,45 +4,58 @@
              x:Class="MyRecipes.Views.AddRecipe"
              Title="Add New Recipe">
     <ScrollView>
-        <VerticalStackLayout Padding="30">
-            <Frame Padding="10" BorderColor="{StaticResource Tertiary}">
-                <Editor x:Name="R_Name"
-                AutoSize="TextChanges" Placeholder="Name" 
-                HeightRequest="40" TextColor="{StaticResource Primary}"
-                Margin="0,10"/>
-            </Frame>
-            <Frame BorderColor="{StaticResource Tertiary}" Padding="10"
-               Margin="0,15,0,0">
-                <Editor x:Name="R_Author" TextColor="{StaticResource Primary}"
-                AutoSize="TextChanges" Placeholder=" Recipe by:"  
-                HeightRequest="40" Margin="0,10"/>
-            </Frame>
-            <Frame BorderColor="{StaticResource Tertiary}" 
-               Margin="0,15,0,0" Padding="10">
-                <Editor x:Name="R_Ing" TextColor="{StaticResource Primary}"
-                AutoSize="TextChanges" Placeholder=" Ingredients"  
-                HeightRequest="120" Margin="0,10"/>
-            </Frame>
-            <Frame BorderColor="{StaticResource Tertiary}" 
-               Margin="0,15,0,0"  Padding="10">
-                <Editor x:Name="R_Steps" TextColor="{StaticResource Primary}"
-                AutoSize="TextChanges" Placeholder=" Steps"  
-                HeightRequest="200" Margin="0,10"/>
-            </Frame>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Save" x:Name="Save" 
-                    Clicked="Save_Clicked" 
-                    VerticalOptions="End"
+        <StackLayout Padding="30,10">
+            
+            <StackLayout>
+                <Editor TextColor="{StaticResource Tertiary}" Placeholder="Recipe" Text="{Binding R_Title}"
+                        FontSize="33" HorizontalOptions="EndAndExpand" AutoSize="TextChanges"/>
+                <Editor TextColor="{StaticResource Primary}" HorizontalOptions="EndAndExpand" 
+                        AutoSize="TextChanges" HeightRequest="40" Placeholder="Recipe Author"
+                        Text="{Binding Author}" Margin="0,-15,0,0"/>
+            </StackLayout>
+            <BoxView HeightRequest=".5"  Margin="0,0,0,10"
+                         Color="{StaticResource Tertiary}"/>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Category" FontSize="Medium"/>
+                <Editor Text="{Binding Category}" HorizontalOptions="Fill" AutoSize="TextChanges" 
+                        HeightRequest="60" TextColor="{StaticResource Primary}"/>
+                <BoxView HeightRequest=".5" Color="{StaticResource Tertiary}"
+                        Margin="0,10,0,10"/>
+            </StackLayout>
+            
+            <VerticalStackLayout>
+                <Label Text="Ingredients" FontSize="Medium" 
+                       HorizontalOptions="StartAndExpand"/>
+                <Editor x:Name="R_Ingredients" TextColor="{StaticResource Primary}"
+                        AutoSize="TextChanges" Text="{Binding Ingredients}"
+                        HeightRequest="120"/>
+                <BoxView HeightRequest=".5" Color="{StaticResource Tertiary}"
+                         Margin="0,0,0,10"/>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout>
+                <Label Text="Steps" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                    <Editor x:Name="R_Steps" TextColor="{StaticResource Primary}"
+                            AutoSize="TextChanges" HeightRequest="200" 
+                            Text="{Binding Steps}"/>
+                    <BoxView HeightRequest=".5" Margin="0,0,0,10"
+                             Color="{StaticResource Tertiary}"/>
+                </VerticalStackLayout>
+            
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton Source="save.png" Style="{StaticResource hands}"
+                        Clicked="OnSaveButtonClicked"
+                    WidthRequest="150" HeightRequest="100"
                     HorizontalOptions="FillAndExpand"
                     Margin="0,5,5,0"/>
-                <Button Text="Delete" x:Name="Delete"
-                    Clicked="Delete_Clicked"
-                    VerticalOptions="End" Margin="0,5,0,0"
+                    
+                    <ImageButton Source="delete_text.png" Style="{StaticResource hands}"
+                    Clicked="OnDeleteButtonClicked"
+                    Margin="0,5,0,0" WidthRequest="150" HeightRequest="100"
                     HorizontalOptions="FillAndExpand"
-                    Background="red"/>
-            </StackLayout>
-        </VerticalStackLayout>
+                    />
+                </StackLayout>
+
+        </StackLayout>
     </ScrollView>
-
-
 </ContentPage>
