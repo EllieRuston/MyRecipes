@@ -7,14 +7,13 @@ namespace MyRecipes;
 
 public partial class MainPage : ContentPage
 {
-
     public MainPage()
     {
         InitializeComponent();
     }
 
     protected override async void OnAppearing()
-    {   // load all recipes
+    {   // load all recipes to collection view
         base.OnAppearing();
         collectionView.ItemsSource = await App.Database.GetRecipesAsync();
     }
@@ -22,18 +21,15 @@ public partial class MainPage : ContentPage
     async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (e.CurrentSelection != null)
-        {
-            // Navigate to the NoteEntryPage, passing the ID as a query parameter.
+        {   // Navigate to the AddRecipe Page, passing the ID as a query parameter.
             RecipeInfo recipe = (RecipeInfo)e.CurrentSelection.FirstOrDefault();
             await Shell.Current.GoToAsync($"{nameof(AddRecipe)}?{nameof(AddRecipe.ItemId)}={recipe.R_Id.ToString()}");
         }
     }
 
     async void OnAddClicked(object sender, EventArgs e)
-    {
-       // await Shell.Current.GoToAsync(nameof(AddRecipe));
+    {   // await Shell.Current.GoToAsync(nameof(AddRecipe));
         await Navigation.PushAsync(new AddRecipe());
-
     }
 }
 

@@ -4,7 +4,6 @@ using System;
 using MyRecipes.Services;
 namespace MyRecipes.Views;
 
-
 [QueryProperty(nameof(ItemId), nameof(ItemId))]
 public partial class AddRecipe : ContentPage
 {

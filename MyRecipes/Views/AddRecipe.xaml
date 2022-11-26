@@ -5,40 +5,38 @@
              Title="Add New Recipe">
     <ScrollView>
         <StackLayout Padding="30,10">
-            
             <StackLayout>
                 <Editor TextColor="{StaticResource Tertiary}" Placeholder="Recipe" Text="{Binding R_Title}"
-                        FontSize="33" HorizontalOptions="EndAndExpand" AutoSize="TextChanges"/>
+                        FontSize="33" HorizontalOptions="EndAndExpand" AutoSize="TextChanges" FontAttributes="Bold"/>
                 <Editor TextColor="{StaticResource Primary}" HorizontalOptions="EndAndExpand" 
-                        AutoSize="TextChanges" HeightRequest="40" Placeholder="Recipe Author"
+                        AutoSize="TextChanges" HeightRequest="40" Placeholder="Created By"
                         Text="{Binding Author}" Margin="0,-15,0,0"/>
             </StackLayout>
-            <BoxView HeightRequest=".5"  Margin="0,0,0,10"
+            <BoxView HeightRequest="1"  Margin="0,0,0,10"
                          Color="{StaticResource Tertiary}"/>
+            
             <StackLayout Orientation="Vertical">
-                <Label Text="Category" FontSize="Medium"/>
+                <Label Text="Category" FontSize="Large" FontAttributes="Bold"/>
                 <Editor Text="{Binding Category}" HorizontalOptions="Fill" AutoSize="TextChanges" 
-                        HeightRequest="60" TextColor="{StaticResource Primary}"/>
-                <BoxView HeightRequest=".5" Color="{StaticResource Tertiary}"
+                        TextColor="{StaticResource Primary}" FontSize="Medium"/>
+                <BoxView HeightRequest="1" Color="{StaticResource Tertiary}"
                         Margin="0,10,0,10"/>
             </StackLayout>
             
             <VerticalStackLayout>
-                <Label Text="Ingredients" FontSize="Medium" 
+                <Label Text="Ingredients" FontSize="Large" FontAttributes="Bold"
                        HorizontalOptions="StartAndExpand"/>
-                <Editor x:Name="R_Ingredients" TextColor="{StaticResource Primary}"
-                        AutoSize="TextChanges" Text="{Binding Ingredients}"
-                        HeightRequest="120"/>
-                <BoxView HeightRequest=".5" Color="{StaticResource Tertiary}"
+                <Editor x:Name="R_Ingredients" TextColor="{StaticResource Primary}" FontSize="Medium"
+                        AutoSize="TextChanges" Text="{Binding Ingredients}"/>
+                <BoxView HeightRequest="1" Color="{StaticResource Tertiary}"
                          Margin="0,0,0,10"/>
             </VerticalStackLayout>
             
             <VerticalStackLayout>
-                <Label Text="Steps" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
-                    <Editor x:Name="R_Steps" TextColor="{StaticResource Primary}"
-                            AutoSize="TextChanges" HeightRequest="200" 
-                            Text="{Binding Steps}"/>
-                    <BoxView HeightRequest=".5" Margin="0,0,0,10"
+                <Label Text="Steps" FontSize="Title" HorizontalOptions="StartAndExpand" FontAttributes="Bold"/>
+                    <Editor x:Name="R_Steps" TextColor="{StaticResource Primary}" FontSize="Medium"
+                            AutoSize="TextChanges" Text="{Binding Steps}"/>
+                    <BoxView HeightRequest="1" Margin="0,0,0,10"
                              Color="{StaticResource Tertiary}"/>
                 </VerticalStackLayout>
             

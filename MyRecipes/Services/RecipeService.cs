@@ -29,17 +29,15 @@ namespace MyRecipes.Services
                             .FirstOrDefaultAsync();
         }
 
-
         public Task<int> SaveRecipeAsync(RecipeInfo recipe)
         {
             if (recipe.R_Id != 0)
             {
-                // Update an existing note.
+                // Update an existing Recipe.
                 return database.UpdateAsync(recipe);
             }
             else
-            {
-                // Save a new note.
+            {   // Save a New recipe
                 return database.InsertAsync(recipe);
             }
         }
@@ -47,7 +45,6 @@ namespace MyRecipes.Services
         // delete record
         public Task<int> DeleteRecipeAsync(RecipeInfo recipe)
         {
-            // Delete a note.
             return database.DeleteAsync(recipe);
         }
 
